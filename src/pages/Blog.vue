@@ -1,12 +1,11 @@
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted } from 'vue';
-import { Blog } from '../types'
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const store = useStore();
-const post = ref<Blog>({
+const post = ref({
     id: -1,
     title: null,
     content: undefined,

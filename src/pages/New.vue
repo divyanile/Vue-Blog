@@ -1,13 +1,12 @@
-<script setup lang="ts">
+<script setup>
 import { reactive, computed } from 'vue'
-import { Blog } from '../types'
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 
 const store = useStore();
 const router = useRouter();
 
-const postData = reactive<Blog>({
+const postData = reactive({
     id: null,
     title: null,
     content: null,

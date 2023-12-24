@@ -69,41 +69,41 @@ const store = createStore({
         ]
     },
     actions: {
-        newPost: (context: any, payload: Blog) => {
+        newPost: (context, payload) => {
             context.commit('newPost', payload);
         },
-        updatePost : (context: any, payload: Blog) => {
+        updatePost : (context, payload) => {
             context.commit('updatePost', payload);
         },
-        deletePost : (context: any, payload: Blog) => {
+        deletePost : (context, payload) => {
             context.commit('deletePost', payload);
         }
     },
     mutations: {
-        newPost : (state: any, payload: Blog) => {
+        newPost : (state ,  payload) => {
             state.blogs.push(payload);
         },
-        updatePost : (state: any, payload: Blog) => {
-            let temp: Blog = state.blogs.find((el: Blog) => {
+        updatePost : (state, payload) => {
+            let temp = state.blogs.find((el) => {
                 return el.id === payload.id;
             });
-            let index: number = state.blogs.indexOf(temp);
+            let index = state.blogs.indexOf(temp);
             state.blogs[index] = payload;
         },
-        deletePost: (state: any, payload: number) => {
-            state.blogs = state.blogs.filter((el: Blog) => {
+        deletePost: (state, payload) => {
+            state.blogs = state.blogs.filter((el) => {
                 return el.id != payload;
             })
         }
     },
     getters: {
-        getPost: (state: any) => (payload: number) => {
-            let temp: Blog = state.blogs.find((el: Blog) => {
+        getPost: (state) => (payload) => {
+            let temp = state.blogs.find((el) => {
                 return el.id == payload;
             });
             return temp;
         },
-        getAllPosts: (state: any) => {
+        getAllPosts: (state) => {
             return state.blogs;
         }
     }

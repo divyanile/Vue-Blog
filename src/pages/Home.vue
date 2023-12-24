@@ -1,7 +1,7 @@
-<script setup lang="ts">
+<script setup>
 import { computed } from 'vue'
 import { useStore } from 'vuex';
-import Hero from '../components/Hero.vue';
+import Hero from './../components/Hero.vue';
 
 const store = useStore();
 

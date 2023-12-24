@@ -1,9 +1,8 @@
-<script setup lang="ts">
+<script setup>
 import { reactive, computed } from 'vue'
-import { Blog } from '../types'
 import { useStore } from 'vuex';
 
-const postData = reactive<Blog>({
+const postData = reactive({
     id: null,
     title: null,
     content: null,
@@ -15,8 +14,8 @@ const store = useStore();
 
 const getAllPosts = computed(() => store.getters.getAllPosts);
 
-const applyDataToModal = (id: number) => {
-    let res: Blog = getAllPosts.value.find((el: Blog) => { return el.id == id });
+const applyDataToModal = (id) => {
+    let res = getAllPosts.value.find((el) => { return el.id == id });
     postData.id = res.id;
     postData.title = res.title;
     postData.content = res.content;
@@ -29,7 +28,7 @@ const saveData = () => {
     store.dispatch('updatePost', postData);
 }
 
-const deletePost = (id: number) => {
+const deletePost = (id) => {
     store.dispatch('deletePost', id);
 }
 </script>
